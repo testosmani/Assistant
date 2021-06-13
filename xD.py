@@ -40,8 +40,8 @@ async def links(event):
   
 @alain.on(events.callbackquery.CallbackQuery(data="pback"))
 async def pbak(event, message):
-  await event.delete()
-  await startkaru(event)
+  but = [[Button.inline('Groups.', data="link")]]
+  await event.edit(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in zeda network..:)\n\nWill see you there!😉**', buttons=but)
 
 print('xD')
 alain.run_until_disconnected()
