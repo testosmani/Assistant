@@ -6,11 +6,11 @@ from telethon.utils import pack_bot_file_id as lolpic
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s', level=logging.INFO)
 
 try:
-  BOT_TOKEN = 
-  APP_ID = 
-  API_HASH = 
-  OWNER_ID = 
-  CHANNEL = 
+  BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
+  APP_ID = int(os.environ.get("APP_ID", 6))
+  API_HASH = os.environ.get("API_HASH", None)
+  OWNER_ID = int(os.environ.get("OWNER_ID", None))
+  CHANNEL = os.environ.get("CHANNEL")
   
   alain = TelegramClient('alain', APP_ID, API_HASH).start(bot_token=BOT_TOKEN)
   
