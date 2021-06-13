@@ -15,7 +15,7 @@ try:
   CHANNEL = os.environ.get("CHANNEL")
   
   alain = TelegramClient('alain', APP_ID, API_HASH).start(bot_token=BOT_TOKEN)
-  app = pyrogram.Client('app', api_id=APP_ID, api_hash=API_HASH, bot_token=BOT+TOKEN)
+  app = pyrogram.Client('app', api_id=APP_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
   
   print('Processing....')
 except Exception as e:
@@ -63,6 +63,12 @@ async def pbak(event):
   but = [[Button.inline('Groups.', data="link")]]
   await event.edit(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in zeda network..:)\n\nWill see you there!😉**', buttons=but)
 
+  
+app.on_message(pyrogram.filters.command(['help']))
+async def app(_, event):
+  await event.reply('I will fk u')
+  
+  
 print('xD')
 alain.run_until_disconnected()
 app.run()
