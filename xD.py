@@ -36,7 +36,7 @@ async def startkaru(event):
 async def links(event):
   tf = [[Button.url('✘ Support ✘', 't.me/ZedaSupport'), Button.url('✘ Spam ✘', 't.me/ZedaSpam')]]
   tf += [[Button.url('✘ Updates ✘', 't.me/ZedaUpdates'), Button.inline('Back', data='pback')]]
-  await event.reply('**Here are all the links of zeda network...!**', buttons=tf)
+  await event.edit('**Here are all the links of zeda network...!**', buttons=tf)
   
 @alain.on(events.callbackquery.CallbackQuery(data="pback"))
 async def pbak(event, message):
