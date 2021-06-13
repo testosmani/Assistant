@@ -33,7 +33,8 @@ async def startkaru(event):
     return await event.reply(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in zeda network..:)\n\nWill see you there!😉**', buttons=but)
   chat = [-1001363684870]
   if event.chat_id in chat:
-    await event.reply(f"**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\nI'm Zeda assistant who works for zeda network...!**", buttons=but)
+    sedkk = [[Button.inline('Groups.', data="del")]]
+    await event.reply(f"**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**I'm Zeda assistant who works for zeda network...!**", buttons=sedkk)
   else:
     await alain.delete_dialog(event.chat_id)
   
@@ -42,6 +43,17 @@ async def links(event):
   tf = [[Button.url('✘ Support ✘', 't.me/ZedaSupport'), Button.url('✘ Spam ✘', 't.me/ZedaSpam')]]
   tf += [[Button.url('✘ Updates ✘', 't.me/ZedaUpdates'), Button.inline('Back', data='pback')]]
   await event.edit('**Here are all the links of zeda network...!**', buttons=tf)
+  
+@alain.on(events.callbackquery.CallbackQuery(data="del"))
+async def links(event):
+  tf = [[Button.url('✘ Support ✘', 't.me/ZedaSupport'), Button.url('✘ Spam ✘', 't.me/ZedaSpam')]]
+  tf += [[Button.url('✘ Updates ✘', 't.me/ZedaUpdates'), Button.inline('Close', data='delll')]]
+  await event.edit('**Here are all the links of zeda network...!**', buttons=tf)
+  
+  
+@alain.on(events.callbackquery.CallbackQuery(data="delll"))
+async def links(event):
+  await event.delete()
   
 @alain.on(events.callbackquery.CallbackQuery(data="pback"))
 async def pbak(event):
