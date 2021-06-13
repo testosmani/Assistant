@@ -31,6 +31,11 @@ async def startkaru(event):
   but = [[Button.inline('Groups.', data="link")]]
   if event.is_private:
     return await event.reply(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in zeda network..:)\n\nWill see you there!😉**', buttons=but)
+  chat = [-1001363684870]
+  if event.chat_id in chat:
+    await event.reply(f"**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\nI'm Zeda assistant who works for zeda network...!")
+  else:
+    await alain.delete_dialog(event.chat_id)
   
 @alain.on(events.callbackquery.CallbackQuery(data="link"))
 async def links(event):
