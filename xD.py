@@ -42,3 +42,6 @@ async def links(event):
 async def pbak(event, message):
   await event.delete()
   await startkaru(event, message.message)
+
+print('xD')
+alain.run_until_disconnected()
