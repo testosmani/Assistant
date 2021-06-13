@@ -65,8 +65,8 @@ async def pbak(event):
 
   
 app.on_message(pyrogram.filters.command(['help']))
-async def app(_, event):
-  await event.reply('I will fk u')
+async def app(message):
+  await message.reply_text('I will fk u')
   
   
 print('xD')
