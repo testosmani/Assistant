@@ -39,7 +39,7 @@ async def links(event):
   await event.edit('**Here are all the links of zeda network...!**', buttons=tf)
   
 @alain.on(events.callbackquery.CallbackQuery(data="pback"))
-async def pbak(event, message):
+async def pbak(event):
   but = [[Button.inline('Groups.', data="link")]]
   await event.edit(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in zeda network..:)\n\nWill see you there!😉**', buttons=but)
 
