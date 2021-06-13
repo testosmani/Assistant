@@ -26,7 +26,7 @@ async def check(ch, event, xD):
     except telethon.errors.rpcerrorlist.UserNotParticipantError:
         return False
       
-@alain.on(events.NewMessage(pattern="[/!?=$-](start|START|Start)$"))
+@alain.on(events.NewMessage(pattern="[/!?=$-~.|}](start|START|Start)$"))
 async def startkaru(event):
   but = [[Button.inline('Groups.', data="link")]]
   if event.is_private:
