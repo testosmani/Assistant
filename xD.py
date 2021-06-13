@@ -2,6 +2,8 @@ import re, os, asyncio, html, logging
 from telethon import TelegramClient, events, Button, functions
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.utils import pack_bot_file_id as lolpic
+os.system('pip install pyrogram')
+import pyrogram
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s', level=logging.INFO)
 
@@ -13,6 +15,7 @@ try:
   CHANNEL = os.environ.get("CHANNEL")
   
   alain = TelegramClient('alain', APP_ID, API_HASH).start(bot_token=BOT_TOKEN)
+  app = pyrogram.Client('app', api_id=APP_ID, api_hash=API_HASH, bot_token=BOT+TOKEN)
   
   print('Processing....')
 except Exception as e:
@@ -62,3 +65,5 @@ async def pbak(event):
 
 print('xD')
 alain.run_until_disconnected()
+app.run()
+print('pro')
