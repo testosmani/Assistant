@@ -64,8 +64,8 @@ async def pbak(event):
   await event.edit(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in zeda network..:)\n\nWill see you there!😉**', buttons=but)
 
   
-app.on_message(pyrogram.filters.command(['help']))
-async def app(message):
+@app.on_message(pyrogram.filters.command(['help']))
+async def app(lel, message):
   await message.reply_text('I will fk u')
   
   
