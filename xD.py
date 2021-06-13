@@ -41,7 +41,7 @@ async def links(event):
 @alain.on(events.callbackquery.CallbackQuery(data="pback"))
 async def pbak(event, message):
   await event.delete()
-  await startkaru(event, message.message)
+  await startkaru(event)
 
 print('xD')
 alain.run_until_disconnected()
