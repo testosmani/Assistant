@@ -33,7 +33,7 @@ async def startkaru(event):
     return await event.reply(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in zeda network..:)\n\nWill see you there!😉**', buttons=but)
   chat = [-1001363684870]
   if event.chat_id in chat:
-    await event.reply(f"**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\nI'm Zeda assistant who works for zeda network...!")
+    await event.reply(f"**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\nI'm Zeda assistant who works for zeda network...!**", buttons=but)
   else:
     await alain.delete_dialog(event.chat_id)
   
