@@ -21,7 +21,7 @@ async def aexec(code, event):
     return await locals()['__aexec'](event)
 
 @bot.on(events.NewMessage(pattern="/eval"))
-@ubot.on(events.NewMessage(pattern=".eval"))
+
 async def _(event):
     cmd = event.text.split(" ", maxsplit=1)[1]
 
