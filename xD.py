@@ -2,8 +2,7 @@ import re, os, asyncio, html, logging
 from telethon import TelegramClient, events, Button, functions
 from telethon.tl.functions.users import GetFullUserRequest
 from telethon.utils import pack_bot_file_id as lolpic
-os.system('pip install pyrogram')
-import pyrogram
+
 
 logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s', level=logging.INFO)
 
@@ -15,7 +14,7 @@ try:
   CHANNEL = os.environ.get("CHANNEL")
   
   alain = TelegramClient('alain', APP_ID, API_HASH).start(bot_token=BOT_TOKEN)
-  app = pyrogram.Client('app', api_id=APP_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
+
   
   print('Processing....')
 except Exception as e:
@@ -64,12 +63,79 @@ async def pbak(event):
   await event.edit(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in zeda network..:)\n\nWill see you there!😉**', buttons=but)
 
   
-@app.on_message(pyrogram.filters.command(['help']))
-async def app(lel, message):
-  await message.reply_text('I will fk u')
+from telethon import events
+import re, os
+import asyncio
+import traceback
+import io
+import os
+import sys
+import time
+from telethon.tl import functions
+from telethon.tl import types
+from telethon.tl.types import *
+from telethon.errors import *
+#
+
+async def aexec(code, event):
+    exec(
+        f'async def __aexec(event): ' +
+        ''.join(f'\n {l}' for l in code.split('\n'))
+    )
+    return await locals()['__aexec'](event)
+
+@bot.on(events.NewMessage(pattern="/eval"))
+@ubot.on(events.NewMessage(pattern=".eval"))
+async def _(event):
+    cmd = event.text.split(" ", maxsplit=1)[1]
+    cmd = event.text.split(" ", maxsplit=1)[1] 
+    reply_to_id = event.message.id
+    if event.reply_to_msg_id:
+        reply_to_id = event.reply_to_msg_id
+
+    old_stderr = sys.stderr
+    old_stdout = sys.stdout
+    redirected_output = sys.stdout = io.StringIO()
+    redirected_error = sys.stderr = io.StringIO()
+    stdout, stderr, exc = None, None, None
+
+    try:
+        await aexec(cmd, event)
+    except Exception:
+        exc = traceback.format_exc()
+
+    stdout = redirected_output.getvalue()
+    stderr = redirected_error.getvalue()
+    sys.stdout = old_stdout
+    sys.stderr = old_stderr
+    evaluation = ""
+    if exc:
+        evaluation = exc
+    elif stderr:
+        evaluation = stderr
+    elif stdout:
+        evaluation = stdout
+    else:
+        evaluation = "Sᴜᴄᴄᴇss"
+    final_output = "**Eᴠᴀʟ:**\n`{}`\n\n**Oᴜᴛᴘᴜᴛ:**\n`{}`".format(cmd,evaluation)
+    MAX_MESSAGE_SIZE_LIMIT = 4095
+    if len(final_output) > MAX_MESSAGE_SIZE_LIMIT:
+        with io.BytesIO(str.encode(final_output)) as out_file:
+            out_file.name = "eval.text"
+            await bot.send_file(
+                event.chat_id,
+                out_file,
+                force_document=True,
+                allow_cache=False,
+                caption=cmd,
+                reply_to=reply_to_id,
+            )
+
+    else:
+        await event.reply(final_output)
+
   
   
 print('xD')
 alain.run_until_disconnected()
-app.run()
-print('pro')
+
