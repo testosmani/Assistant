@@ -75,6 +75,8 @@ from telethon.tl import functions
 from telethon.tl import types
 from telethon.tl.types import *
 from telethon.errors import *
+
+bot = alain
 #
 
 async def aexec(code, event):
@@ -85,7 +87,6 @@ async def aexec(code, event):
     return await locals()['__aexec'](event)
 
 @bot.on(events.NewMessage(pattern="/eval"))
-@ubot.on(events.NewMessage(pattern=".eval"))
 async def _(event):
     cmd = event.text.split(" ", maxsplit=1)[1]
     cmd = event.text.split(" ", maxsplit=1)[1] 
