@@ -179,7 +179,6 @@ async def updateme_requirements():
     except Exception as e:
         return repr(e)
 
-Evie = xD
 
 
 @bot.on(events.NewMessage(pattern="^/update(?: |$)(.*)"))
