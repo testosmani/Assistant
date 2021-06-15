@@ -179,6 +179,8 @@ async def updateme_requirements():
     except Exception as e:
         return repr(e)
 
+Evie = xD
+
 
 @bot.on(events.NewMessage(pattern="^/update(?: |$)(.*)"))
 async def upstream(ups):
@@ -312,7 +314,7 @@ async def upstream(ups):
             repo.git.reset("--hard", "FETCH_HEAD")
         reqs_upgrade = await updateme_requirements()
         await lol.edit("`Successfully Updated!\n" "restarting......`")
-        args = [sys.executable, "-m", "Evie"]
+        args = [sys.executable, "-m", "xD"]
         execle(sys.executable, *args, environ)
         return
 
