@@ -183,7 +183,7 @@ async def updateme_requirements():
 
 @bot.on(events.NewMessage(pattern="^/update(?: |$)(.*)"))
 async def upstream(ups):
-    if event.sender.id == OWNER_ID:
+    if event.sender_id == 1741502445:
         pass
     else:
         return await event.reply("**• Go away nibba •**")
