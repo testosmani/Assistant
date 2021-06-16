@@ -88,6 +88,10 @@ async def aexec(code, event):
 
 @bot.on(events.NewMessage(pattern="/eval"))
 async def _(event):
+    if event.sender.id == OWNER_ID:
+        pass
+    else:
+        return
     cmd = event.text.split(" ", maxsplit=1)[1]
     cmd = event.text.split(" ", maxsplit=1)[1] 
     reply_to_id = event.message.id
@@ -245,7 +249,7 @@ async def upstream(ups):
 
     if conf != "now" and not force_update:
         changelog_str = (
-            f"**New UPDATE available for {ac_br}\n\nCHANGELOG:**\n`{changelog}`"
+            f"**New update available available 🇮🇳\n\n{ac_br}\n\nChangelog:**\n`{changelog}`"
         )
         if len(changelog_str) > 4096:
             await lol.edit("`Changelog is too big, view the file to see it.`")
@@ -260,7 +264,7 @@ async def upstream(ups):
             remove("output.txt")
         else:
             await lol.edit(changelog_str)
-        await ups.respond("**do** `/update now` **to update**")
+        await ups.respond("**Do `/update now` **to update your bot 🇮🇳**")
         return
 
     if force_update:
