@@ -361,6 +361,10 @@ async def _(event):
       hub = await bot.send_file("DaisyXRequests", pro, caption=f"**# Request 📌**\n\n{pro.text}\n\n**Requested by** **[{event.sender.first_name}](tg://user?id={event.sender.id})**", buttons=ni)
 
       await event.reply("**I have submitted your request successfully..!**", buttons=[[Button.url("View message 💕", f"t.me/c/{1240564167}/{hub.id}")]])
+    else:
+      rk = await bot.send_message("DaisyXRequests", f"**# Request 📌**\n\n{pro.text}\n\n**Requested by** **[{event.sender.first_name}](tg://user?id={event.sender.id})**", buttons=ni)
+
+      await event.reply("**I have submitted your request successfully..!**", buttons=[[Button.url("View message 💕", f"t.me/c/{1240564167}/{rk.id}")]])
 
 
 @bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"delete_hu")))
