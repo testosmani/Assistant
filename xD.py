@@ -320,6 +320,51 @@ async def upstream(ups):
         args = [sys.executable, "-m", "xD"]
         execle(sys.executable, *args, environ)
         return
+      
+      
+      
+      
+      
+import re
+from telethon import events, Button
+Devs = [ 1741502445]
+
+@bot.on(events.NewMessage(pattern="#request ?(.*)"))
+async def _(event):
+   if not event.is_private and not event.chat_id in [-1001363684870, -1001354786862]:
+       return
+
+
+   if not event.reply_to and not event.pattern_match.group(1):
+      return await event.reply("`Give some text which u want to request first....!`")
+
+
+   id = event.id
+   if not event.reply_to:
+     sed = event.text.split(None, 1)[1]
+
+   ni = [[Button.inline("Delete message ❌", data="delete_hu"), Button.url("Go to message 📬", f"t.me/c/{event.chat.id}/{event.id}")]]   
+   if not event.reply_to:
+    nib = await bot.send_message("DaisyXRequests", f"**# Request 📌**\n\n{sed}\n\n**Requested by** **[{event.sender.first_name}](tg://user?id={event.sender.id})**", buttons=ni)
+
+
+    await event.reply("**I have submitted your request successfully..!**", buttons=[[Button.url("View message 💕", f"t.me/c/{1240564167}/{nib.id}")]])
+
+
+   else:
+
+
+    pro = await event.get_reply_message()
+    hub = await bot.send_message("DaisyXRequests", f"**# Request 📌**\n\n{pro.text}\n\n**Requested by** **[{event.sender.first_name}](tg://user?id={event.sender.id})**", buttons=ni)
+
+   await event.reply("**I have submitted your request successfully..!**", buttons=[[Button.url("View message 💕", f"t.me/c/{1240564167}/{hub.id}")]])
+
+
+@bot.on(events.callbackquery.CallbackQuery(data=re.compile(b"delete_hu")))
+async def _(event):
+  if not event.sender_id in Devs:
+    return await event.answer("lmao, are you serious...?", alert=True)
+  await event.delete()
 
 
   
