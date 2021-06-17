@@ -322,7 +322,9 @@ async def upstream(ups):
         return
       
       
-      
+  
+
+#-------------------Request----------------#
       
       
 import re
@@ -366,6 +368,12 @@ async def _(event):
   if not event.sender_id in Devs:
     return await event.answer("lmao, are you serious...?", alert=True)
   await event.delete()
+
+
+
+#--------------------Request End---------------------#
+
+
 
 
   
