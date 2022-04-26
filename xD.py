@@ -32,25 +32,25 @@ async def check(ch, event, xD):
 async def startkaru(event):
   but = [[Button.inline('Groups.', data="link")]]
   if event.is_private:
-    return await event.reply(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in zeda network..:)\n\nWill see you there!😉**', buttons=but)
+    return await event.reply(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in osmani network..:)\n\nWill see you there!😉**', buttons=but)
   chat = [-1001363684870]
   if event.chat_id in chat:
     sedkk = [[Button.inline('Groups.', data="del")]]
-    await event.reply(f"**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**I'm Zeda assistant who works for zeda network...!**", buttons=sedkk)
+    await event.reply(f"**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**I'm Osmani assistant who works for osmani network...!**", buttons=sedkk)
   else:
     await alain.delete_dialog(event.chat_id)
   
 @alain.on(events.callbackquery.CallbackQuery(data="link"))
 async def links(event):
-  tf = [[Button.url('✘ Support ✘', 't.me/ZedaSupport'), Button.url('✘ Spam ✘', 't.me/ZedaSpam')]]
-  tf += [[Button.url('✘ Updates ✘', 't.me/ZedaUpdates'), Button.inline('Back', data='pback')]]
-  await event.edit('**Here are all the links of zeda network...!**', buttons=tf)
+  tf = [[Button.url('✘ Support ✘', 't.me/osmanigroupbot'), Button.url('✘ Owner ✘', 't.me/ribajosmani')]]
+  tf += [[Button.url('✘ Updates ✘', 't.me/teamosmani'), Button.inline('Back', data='pback')]]
+  await event.edit('**Here are all the links of osmani network...!**', buttons=tf)
   
 @alain.on(events.callbackquery.CallbackQuery(data="del"))
 async def links(event):
-  tf = [[Button.url('✘ Support ✘', 't.me/ZedaSupport'), Button.url('✘ Spam ✘', 't.me/ZedaSpam')]]
-  tf += [[Button.url('✘ Updates ✘', 't.me/ZedaUpdates'), Button.inline('Close', data='delll')]]
-  await event.edit('**Here are all the links of zeda network...!**', buttons=tf)
+  tf = [[Button.url('✘ Support ✘', 't.me/osmanigroupbot'), Button.url('✘ Owner ✘', 't.me/ribajosmani')]]
+  tf += [[Button.url('✘ Updates ✘', 't.me/teamosmani'), Button.inline('Close', data='delll')]]
+  await event.edit('**Here are all the links of osmani network...!**', buttons=tf)
   
   
 @alain.on(events.callbackquery.CallbackQuery(data="delll"))
@@ -60,7 +60,7 @@ async def links(event):
 @alain.on(events.callbackquery.CallbackQuery(data="pback"))
 async def pbak(event):
   but = [[Button.inline('Groups.', data="link")]]
-  await event.edit(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in zeda network..:)\n\nWill see you there!😉**', buttons=but)
+  await event.edit(f'**Hey** **[{event.sender.first_name}](tg://user?id={event.sender.id})!**\n**Nice to see you here..!\nSorry but i only works in osmani network..:)\n\nWill see you there!😉**', buttons=but)
 
   
 from telethon import events
@@ -151,7 +151,7 @@ import heroku3
 tbot = bot
 
 
-UPSTREAM_REPO_URL = "https://github.com/TeamZeda/Assistant.git"
+UPSTREAM_REPO_URL = "https://github.com/Ribaj"
 HEROKU_APP_NAME = None
 HEROKU_API_KEY = None
 
@@ -249,7 +249,7 @@ async def upstream(ups):
 
     if conf != "now" and not force_update:
         changelog_str = (
-            f"**New update available available 🇮🇳\n\n{ac_br}\n\nChangelog:**\n`{changelog}`"
+            f"**New update available available 🇸🇴\n\n{ac_br}\n\nChangelog:**\n`{changelog}`"
         )
         if len(changelog_str) > 4096:
             await lol.edit("`Changelog is too big, view the file to see it.`")
@@ -264,7 +264,7 @@ async def upstream(ups):
             remove("output.txt")
         else:
             await lol.edit(changelog_str)
-        await ups.respond("**Do `/update now` **to update your bot 🇮🇳**")
+        await ups.respond("**Do `/update now` **to update your bot 🇸🇴**")
         return
 
     if force_update:
